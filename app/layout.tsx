@@ -15,7 +15,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Advanced E-Com",
+  title: {
+    default: "Advanced E-Com",
+    template: "%s / Advanced E-Com ",
+  },
   description: "Advanced E-Commerce Product Listing",
 };
 
