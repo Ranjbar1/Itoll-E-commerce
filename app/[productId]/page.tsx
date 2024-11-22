@@ -22,6 +22,7 @@ export default async function ProductDetail({ params }: PageProps) {
             src={product.images[0]}
             alt={product.title}
             fill
+            priority
             className="rounded-lg object-cover"
           />
         </div>

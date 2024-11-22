@@ -15,10 +15,18 @@ export default function ProductCard({
   price,
 }: ProductCardProps) {
   return (
-    <Link href={`/${id}`} className="block group">
+    <Link href={`/${id}`} prefetch={true} className="block group">
       <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 group-hover:scale-105 relative">
         <div className="relative h-72 w-full">
-          <Image src={image} alt={name} fill className="object-cover" />
+          <Image
+            src={image}
+            alt={name}
+            loading="lazy"
+            priority={false}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
         <div className="p-4">
           <h3 className="text-nowrap truncate text-ellipsis max-w-[25ch] font-semibold text-gray-800 mb-2">
