@@ -10,8 +10,8 @@ export default function Home({
 }) {
   return (
     <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">
-      <header className="bg-background text-foreground py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <header className="bg-background text-foreground max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div className="">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             Welcome to Our Store
           </h1>

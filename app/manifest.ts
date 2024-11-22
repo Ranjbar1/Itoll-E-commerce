@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
-    theme_color: "#000000",
+    theme_color: "#2563eb",
     orientation: "any",
     scope: "/",
     display_override: ["standalone", "fullscreen"],
@@ -17,24 +17,24 @@ export default function manifest(): MetadataRoute.Manifest {
     prefer_related_applications: false,
     icons: [
       {
-        src: "icon-192x192.png",
+        src: "maskable_icon_x192.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "icon-512x512.png",
+        src: "maskable_icon_x512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "icon-192x192.png",
+        src: "maskable_icon_x192.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        src: "icon-512x512.png",
+        src: "maskable_icon_x512.png",
         sizes: "512x512",
         type: "image/png",
       },

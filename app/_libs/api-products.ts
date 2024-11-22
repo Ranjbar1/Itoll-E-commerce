@@ -1,28 +1,12 @@
 import { notFound } from "next/navigation";
-import { z } from "zod";
+import { ProductSchema, ProductsListSchema } from "../_types/ProductSchema";
 
-// Define the schema for a single product
-const ProductSchema = z.object({
-  id: z.coerce.number(),
-  title: z.string(),
-  price: z.number(),
-  description: z.string(),
-  category: z.object({
-    id: z.number(),
-    name: z.string(),
-    image: z.string(),
-  }),
-  images: z.array(z.string()),
-});
-
-// Define the schema for a list of products (for getAllProducts)
-const ProductsListSchema = z.array(ProductSchema);
-
-// Define the function to get all products
 export async function getAllProducts() {
-  const response = await fetch("https://api.escuelajs.co/api/v1/products");
+  const response = await fetch("https://api.escuelajs.co/api/v1/products", {
+    next: { revalidate: 3600 },
+    cache: "force-cache",
+  });
 
-  // Parse and validate the response data
   const data = await response.json();
   const result = ProductsListSchema.safeParse(data);
 
@@ -31,16 +15,18 @@ export async function getAllProducts() {
     throw new Error("Failed to fetch or validate products.");
   }
 
-  return result.data; // Returns the validated data
+  return result.data;
 }
 
-// Define the function to get a product by ID
 export async function getProductById(id: number | string) {
   const response = await fetch(
-    `https://api.escuelajs.co/api/v1/products/${id}`
+    `https://api.escuelajs.co/api/v1/products/${id}`,
+    {
+      next: { revalidate: 3600 },
+      cache: "force-cache",
+    }
   );
 
-  // Parse and validate the response data
   const data = await response.json();
   const result = ProductSchema.safeParse(data);
 
@@ -48,5 +34,5 @@ export async function getProductById(id: number | string) {
     notFound();
   }
 
-  return result.data; // Returns the validated product data
+  return result.data;
 }

@@ -17,7 +17,7 @@ export default async function ProductDetail({ params }: PageProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="relative h-96 w-full">
+        <div className="relative aspect-square w-full">
           <Image
             src={product.images[0]}
             alt={product.title}

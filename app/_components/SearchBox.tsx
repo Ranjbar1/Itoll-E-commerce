@@ -27,7 +27,7 @@ export default function SearchBox() {
       <input
         type="text"
         placeholder="Search products..."
-        className="w-full px-4 py-2 rounded-lg focus:outline-none"
+        className="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-1"
         value={searchQuery}
         onChange={handleSearchChange}
       />
